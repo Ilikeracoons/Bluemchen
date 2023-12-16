@@ -1,0 +1,2 @@
+# Bluemchen
+Discord-Bot
