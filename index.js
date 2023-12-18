@@ -1,10 +1,11 @@
 // Require the necessary discord.js classes
 const
-  { Client, GatewayIntentBits } = require('discord.js'),
+  { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Events, Collection } = require('discord.js'),
+  { readdir, readFile } = require('fs/promises'),
   env = require('./env.json');
 
-// Create a new client instance
 (async function main() {
+  // Create a new client instance
   const client = new Client({
     shards: 'auto',
     failIfNotExists: false,
@@ -28,8 +29,19 @@ const
   });
 
   client.keys = env.keys;
+  client.commands = new Collection()
+
+  for (const file of await readdir('./Handlers')) {
+    const handler = require(`./Handlers/${file}`);
+    handler();
+  }
 
   // Log in to Discord with your client's token
   await client.login(client.keys.token);
-  console.log(`Logged in to ${client.user.tag}!`)
-})()
+  console.log(`Logged in to ${client.user.tag}!`);
+})();
+
+process
+  .on('unhandledRejection', err => console.error(` [Unhandled Rejection]: ${err.stack}`))
+  .on('uncaughtExceptionMonitor', err => console.error(` [Unhandled Exception]: ${err.stack}`))
+  .on('uncaughtException', err => console.error(` [Unhandled Exception]: ${err.stack}`));
