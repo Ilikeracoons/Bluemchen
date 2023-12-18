@@ -3,9 +3,8 @@ const
   { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'),
   { readdir } = require('fs/promises'),
   https = require('http'),
-  env = require('./env.json');
-
-https.createServer((_, res) => res.end('OK')).listen(process.env.PORT ?? process.env.SERVER_PORT ?? 8000);
+  env = require('./env.json'),
+  gitpull = require('./Utils/gitpull');
 
 (async function main() {
   // Create a new client instance
@@ -43,6 +42,12 @@ https.createServer((_, res) => res.end('OK')).listen(process.env.PORT ?? process
   await client.login(client.keys.token);
   console.log(`Logged in to ${client.user.tag}!`);
 })();
+
+// Create a webserver
+https.createServer((req, res) => {
+  if (req.url == '/gitpull') gitpull();
+  res.end('OK');
+}).listen(process.env.PORT ?? process.env.SERVER_PORT ?? 8000);
 
 process
   .on('unhandledRejection', err => console.error(` [Unhandled Rejection]: ${err.stack}`))
