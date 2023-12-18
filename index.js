@@ -1,8 +1,11 @@
 // Require the necessary discord.js classes
 const
-  { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Events, Collection } = require('discord.js'),
-  { readdir, readFile } = require('fs/promises'),
+  { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'),
+  { readdir } = require('fs/promises'),
+  https = require('http'),
   env = require('./env.json');
+
+https.createServer((_, res) => res.end('OK')).listen(process.env.PORT ?? process.env.SERVER_PORT ?? 8000);
 
 (async function main() {
   // Create a new client instance
@@ -29,7 +32,7 @@ const
   });
 
   client.keys = env.keys;
-  client.commands = new Collection()
+  client.commands = new Collection();
 
   for (const file of await readdir('./Handlers')) {
     const handler = require(`./Handlers/${file}`);
