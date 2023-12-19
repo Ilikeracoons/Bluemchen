@@ -36,7 +36,7 @@ const
   // Loop through all the files in the Handlers directory
   for (const file of await readdir('./Handlers')) {
     const handler = require(`./Handlers/${file}`); // Importing each handler
-    handler(); // Running each handler
+    handler(client); // Running each handler with the client as parameter
   }
 
   await client.login(client.keys.token); // Logging in to Discord with the client's token
