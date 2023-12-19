@@ -1,7 +1,7 @@
 const
   { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'), // Importing necessary classes from discord.js
   { readdir } = require('fs/promises'), // Importing readdir function from fs/promises to read directories
-  https = require('http'), // Importing http module to create a server
+  http = require('http'), // Importing http module to create a server
   env = require('./env.json'), // Importing environment variables from env.json
   gitpull = require('./Utils/gitpull'); // Importing gitpull function from Utils/gitpull
 
@@ -44,7 +44,7 @@ const
 })();
 
 // Create a webserver
-https
+http
   .createServer((req, res) => {
     if (req.url == '/gitpull') gitpull(); // If the request URL is '/gitpull', run the gitpull function
     res.end('OK'); // End the response with 'OK'
@@ -53,6 +53,6 @@ https
 
 // Error handling
 process
-  .on('unhandledRejection', err => console.error(` [Unhandled Rejection]: ${err.stack}`)) // Log unhandled promise rejections
-  .on('uncaughtExceptionMonitor', err => console.error(` [Unhandled Exception]: ${err.stack}`)) // Log uncaught exceptions
-  .on('uncaughtException', err => console.error(` [Unhandled Exception]: ${err.stack}`)); // Log uncaught exceptions
+  .on('unhandledRejection', err => console.error(' [Error Handling] :: Unhandled Rejection', err.stack)) // Log unhandled promise rejections
+  .on('uncaughtExceptionMonitor', err => console.error(' [Error Handling] :: Unhandled Exception', err.stack)) // Log uncaught exceptions
+  .on('uncaughtException', err => console.error(' [Error Handling] :: Unhandled Exception', err.stack)); // Log uncaught exceptions
