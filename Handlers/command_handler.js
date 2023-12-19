@@ -34,7 +34,7 @@ module.exports = async function commandHandler(client) {
       client.commands.set(commandName, command);
 
       // Log that the event has been loaded
-      console.log(`Loaded Prefix Command ${command.name}`);
+      console.log(`Loaded Prefix Command ${commandName}`);
       // Increment the command counter
       commandCount++;
     }
