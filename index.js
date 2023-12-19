@@ -1,11 +1,11 @@
-// Require the necessary discord.js classes
 const
-  { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'),
-  { readdir } = require('fs/promises'),
-  https = require('http'),
-  env = require('./env.json'),
-  gitpull = require('./Utils/gitpull');
+  { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'), // Importing necessary classes from discord.js
+  { readdir } = require('fs/promises'), // Importing readdir function from fs/promises to read directories
+  https = require('http'), // Importing http module to create a server
+  env = require('./env.json'), // Importing environment variables from env.json
+  gitpull = require('./Utils/gitpull'); // Importing gitpull function from Utils/gitpull
 
+// Main function
 (async function main() {
   // Create a new client instance
   const client = new Client({
@@ -30,26 +30,29 @@ const
     ]
   });
 
-  client.keys = env.keys;
-  client.commands = new Collection();
+  client.keys = env.keys; // Assigning keys from environment variables to client
+  client.commands = new Collection(); // Creating a new collection for client commands
 
+  // Loop through all the files in the Handlers directory
   for (const file of await readdir('./Handlers')) {
-    const handler = require(`./Handlers/${file}`);
-    handler();
+    const handler = require(`./Handlers/${file}`); // Importing each handler
+    handler(); // Running each handler
   }
 
-  // Log in to Discord with your client's token
-  await client.login(client.keys.token);
+  await client.login(client.keys.token); // Logging in to Discord with the client's token
   console.log(`Logged in to ${client.user.tag}!`);
 })();
 
 // Create a webserver
-https.createServer((req, res) => {
-  if (req.url == '/gitpull') gitpull();
-  res.end('OK');
-}).listen(process.env.PORT ?? process.env.SERVER_PORT ?? 8000);
+https
+  .createServer((req, res) => {
+    if (req.url == '/gitpull') gitpull(); // If the request URL is '/gitpull', run the gitpull function
+    res.end('OK'); // End the response with 'OK'
+  })
+  .listen(process.env.PORT ?? process.env.SERVER_PORT ?? 8000); // Listen on the specified port
 
+// Error handling
 process
-  .on('unhandledRejection', err => console.error(` [Unhandled Rejection]: ${err.stack}`))
-  .on('uncaughtExceptionMonitor', err => console.error(` [Unhandled Exception]: ${err.stack}`))
-  .on('uncaughtException', err => console.error(` [Unhandled Exception]: ${err.stack}`));
+  .on('unhandledRejection', err => console.error(` [Unhandled Rejection]: ${err.stack}`)) // Log unhandled promise rejections
+  .on('uncaughtExceptionMonitor', err => console.error(` [Unhandled Exception]: ${err.stack}`)) // Log uncaught exceptions
+  .on('uncaughtException', err => console.error(` [Unhandled Exception]: ${err.stack}`)); // Log uncaught exceptions
