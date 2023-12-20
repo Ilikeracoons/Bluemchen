@@ -3,7 +3,7 @@ const prefix = 'b!';
 /**@param {import('discord.js').Message}message*/
 module.exports = async function messageCreate(message) {
   // If the message author is a bot or the message doesn't start with the prefix, return.
-  if (message.author.bot || !message.content.startsWith(prefix)) return;
+  if (message.author.bot || !message.content.toLowerCase().startsWith(prefix)) return;
 
   const
     //remove the prefix from the string and then split the string on whitespaces.
@@ -12,7 +12,7 @@ module.exports = async function messageCreate(message) {
     commandName = args.shift();
 
   //get the command from the Collection
-  const command = message.client.commands.get(commandName);
+  const command = message.client.commands.get(commandName.toLowerCase());
   if (!command) return;
 
   try { await command.run(message, args); }
