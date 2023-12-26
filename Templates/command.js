@@ -1,5 +1,5 @@
 module.exports = {
-  /**@param {import('discord.js').Message} @param {string[]}args*/
+  /**@param {import('discord.js').Message}message @param {string[]}args*/
   run: function run(message, args) {
 
   }
