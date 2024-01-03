@@ -38,7 +38,7 @@ module.exports = async function commandHandler(client) {
       // Increment the command counter
       commandCount++;
     }
-
-    console.log(`Loaded ${commandCount} Prefix Commands`);
   }
+
+  console.log(`Loaded ${commandCount} Prefix Commands`);
 };
