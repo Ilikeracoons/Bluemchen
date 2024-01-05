@@ -20,7 +20,7 @@ module.exports = async function messageCreate(message) {
   if (
     //if the category is an owner only folder (if none in config.json set, default to 'owner-only')...
     (config?.ownerOnlyFolders ?? ['owner-only']).includes(command.category.toLowerCase())
-    //...nd the message author is not in the ownerIds (default: application owner), return.
+    //...and the message author is not in the ownerIds (default: application owner), return.
     && !(config?.ownerIds ?? [message.client.application.owner.id]).includes(message.author.id)
   ) return;
 
