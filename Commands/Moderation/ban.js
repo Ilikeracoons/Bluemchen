@@ -15,7 +15,7 @@ async function ban(message, target, reason) {
   try {
     await target.send(
       `:( You have been banned from \`${target.guild.name}\`.\n`
-      + `Moderator: ${message.member.tag}\n`
+      + `Moderator: ${message.author.tag}\n`
       + `Reason: ${reason}`
     );
   }
@@ -24,7 +24,7 @@ async function ban(message, target, reason) {
     noMsg = true;
   }
 
-  await target.ban({ reason: `Moderator ${message.user.username} | ${reason}`, deleteMessageSeconds: 0 });
+  await target.ban({ reason: `Moderator ${message.author.username} | ${reason}`, deleteMessageSeconds: 0 });
 
   let msg = `**${target.user.tag}** has been successfully banned.\n`;
   if (noMsg) msg += "Could not msg the target. They did not want to talk to me! D:";
