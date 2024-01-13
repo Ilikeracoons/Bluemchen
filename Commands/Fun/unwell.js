@@ -5,11 +5,11 @@ const gifs = [
 ];
 
 module.exports = {
+ description: 'Sends an Gif for Comfort if someone feels unwell',
   /**@param {import('discord.js').Message}message*/
   run: async function run(message) {
-    await message.channel.send("It's fine you will be fine!");
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setImage(gifs[randomIndex]);
-    message.channel.send({ embeds: [embed] });
+    const embed = new EmbedBuilder().setDescription("It's fine you will be fine!").setImage(gifs[randomIndex]);
+    return message.reply({ embeds: [embed] });
   }
 };
