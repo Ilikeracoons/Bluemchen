@@ -1,4 +1,5 @@
 module.exports = {
+ discription: 'Get information about yourself from me :D',
   /**@param {import('discord.js').Message}message*/
   run: async function run(message) {
     const userMention = message.mentions.users.first() || message.author;

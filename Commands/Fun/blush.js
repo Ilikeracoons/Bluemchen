@@ -9,11 +9,11 @@ const gifs = [
 ];
 
 module.exports = {
+  description:'Sends an Gif to show user is Blushing!',
   /**@param {import('discord.js').Message}message*/
   run: async function run(message) {
-    await message.reply(`awww ${message.author} is bushing!`);
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setImage(gifs[randomIndex]);
-    message.channel.send({ embeds: [embed] });
+    const embed = new EmbedBuilder().setDescription(`awww ${message.author} is bushing!`).setImage(gifs[randomIndex]);
+    return message.reply({ embeds: [embed] });
   }
 };

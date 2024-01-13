@@ -14,7 +14,7 @@ module.exports = {
       }, {}),
       embeds = [
         new EmbedBuilder({
-          title: 'My commands',
+          title: 'Look at my commands! ^^',
           color: Colors.White,
           thumbnail: { url: message.client.user.avatarURL() }
         }),
