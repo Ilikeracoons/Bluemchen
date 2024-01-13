@@ -25,11 +25,13 @@ module.exports = async function commandHandler(client) {
       // Skip the file if it doesn't have a run property
       if (!command?.run) continue;
 
-      // add a category property, useful for eg. help command
-      command.category = subFolder;
-
       // Get the command name by removing the file extension
       const commandName = file.split('.')[0];
+
+      // add some useful properties, useful for eg. help command
+      command.name = commandName;
+      command.category = subFolder;
+
       // add the command to the collection with its name as key
       client.commands.set(commandName, command);
 
