@@ -7,7 +7,7 @@ const
   BoundFunction = Function.bind(null, ...vars);
 
 module.exports = {
-  discription: 'eval code with me',
+  description: 'eval code with me',
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   run: async function run(message, args) {
     if (!args.length) return;
