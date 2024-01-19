@@ -4,11 +4,11 @@ module.exports = {
   discription: 'set my activity',
   /**@param {import('discord.js').Message}message @param {string[]}args*/
   run: async function (message, args) {
-    const activity = args[0];
+    let type = args.shift();
+    const activity = args.join(' ');
 
-    let type;
     // Searching the list of valid activities
-    if (args[1]) type = ActivityType[Object.keys(ActivityType).find(e => e.toLowerCase() == args[1].toLowerCase())];
+    if (type) type = ActivityType[Object.keys(ActivityType).find(e => e.toLowerCase() == type.toLowerCase())];
     else type = ActivityType.Playing;
 
     if (isNaN(type)) type = ActivityType[type];
