@@ -5,7 +5,7 @@ const gifs = [
 ];
 
 module.exports = {
- description: 'Sends an Gif for Comfort if someone feels unwell',
+  description: 'Sends an Gif for Comfort if someone feels unwell',
   /**@param {import('discord.js').Message}message*/
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
