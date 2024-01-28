@@ -13,6 +13,7 @@ const
     shards: 'auto',
     failIfNotExists: false,
     allowedMentions: {
+      repliedUser: false,
       // Makes sure the bot cannot mention @everyone or @here
       parse: [
         AllowedMentionsTypes.User,
