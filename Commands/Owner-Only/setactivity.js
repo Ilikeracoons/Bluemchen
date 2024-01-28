@@ -1,8 +1,9 @@
 const { ActivityType } = require('discord.js');
 
+/**@type {command}*/
 module.exports = {
   description: 'set my activity',
-  /**@param {import('discord.js').Message}message @param {string[]}args*/
+  
   run: async function (message, args) {
     let type = args.shift();
     const activity = args.join(' ');

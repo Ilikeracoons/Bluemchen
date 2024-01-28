@@ -1,6 +1,7 @@
+/**@type {command}*/
 module.exports = {
   description:'tells you my uptime',
-  /**@param {import(discord.js).Message}message*/
+  
   run: function run(message) {
     let totalSeconds = (message.client.uptime / 1000);
     const days = Math.floor(totalSeconds / 86400);

@@ -2,10 +2,10 @@ const
   { EmbedBuilder, Colors } = require('discord.js'),
   config = require('../../config.json');
 
+/**@type {command}*/
 module.exports = {
   description: 'Get some help',
 
-  /**@param {import('discord.js').Message}message*/
   run: function run(message) {
     const
       commands = message.client.commands.reduce((acc, command) => {
