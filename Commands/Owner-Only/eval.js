@@ -6,9 +6,10 @@ const
   BoundAsyncFunction = (async function () { }).constructor.bind(null, ...vars),
   BoundFunction = Function.bind(null, ...vars);
 
+/**@type {command}*/
 module.exports = {
   description: 'eval code with me',
-  /**@param {import('discord.js').Message}message @param {string[]}args*/
+
   run: async function run(message, args) {
     if (!args.length) return;
 

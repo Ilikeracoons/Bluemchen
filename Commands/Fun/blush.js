@@ -8,9 +8,10 @@ const gifs = [
   , 'https://media.giphy.com/media/dkvGrfQ6ryIAU/giphy.gif'
 ];
 
+/**@type {command}*/
 module.exports = {
   description:'Sends an Gif to show user is Blushing!',
-  /**@param {import('discord.js').Message}message*/
+  
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
     const embed = new EmbedBuilder().setDescription(`awww ${message.author} is bushing!`).setImage(gifs[randomIndex]);

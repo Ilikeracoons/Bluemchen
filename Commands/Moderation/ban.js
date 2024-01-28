@@ -31,10 +31,10 @@ async function ban(message, target, reason) {
   return message.reply(msg);
 }
 
-
+/**@type {command}*/
 module.exports = {
   description: 'Ban an annoying user',
-  /**@param {import('discord.js').Message}message @param {string[]}args*/
+  
   run: async function run(message, args) {
     const target = await message.guild.members.fetch(args[0]);
     const reason = args.slice(1).join(' ');
