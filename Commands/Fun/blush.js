@@ -10,8 +10,8 @@ const gifs = [
 
 /**@type {command}*/
 module.exports = {
-  description:'Sends an Gif to show user is Blushing!',
-  
+  description: 'Sends an Gif to show user is Blushing!',
+
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
     const embed = new EmbedBuilder().setDescription(`awww ${message.author} is bushing!`).setImage(gifs[randomIndex]);
