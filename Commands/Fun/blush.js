@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { Colors, EmbedBuilder } = require('discord.js');
 const gifs = [
   'https://media.giphy.com/media/VVh7txo37uooM/giphy.gif', 'https://media.giphy.com/media/pPkXCRcslKzLO/giphy.gif', 'https://media.giphy.com/media/hOrsk8I7TWRXy/giphy.gif'
   , 'https://media.giphy.com/media/ODECD7W3dzk5y/giphy.gif', 'https://media.giphy.com/media/BkqSYWqv8Zfva/giphy.gif', 'https://media.giphy.com/media/VpcYdQpElriNy/giphy.gif'
@@ -11,6 +11,7 @@ const gifs = [
 /**@type {command}*/
 module.exports = {
   description: 'Sends an Gif to show user is Blushing!',
+  color: Colors.DarkGreen,
 
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
