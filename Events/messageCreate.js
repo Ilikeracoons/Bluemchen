@@ -24,6 +24,10 @@ module.exports = async function messageCreate(message) {
     && !(config?.ownerIds ?? [message.client.application.owner.id]).includes(message.author.id)
   ) return;
 
-  try { await command.run(message, args); }
+  try {
+    await command.run(message, args); //execute the command with the message and args as arguments
+    //increment the cmdstats for this command
+    await message.client.db.update('botSettings', `cmdstats.${command.name}`, message.client.db.get('botSettings', `cmdstats.${command.name}`) + 1 || 1);
+  }
   catch (err) { return console.error(` [Error Handling] :: Unhandled Exception on command ${commandName}`, err); }
 };
