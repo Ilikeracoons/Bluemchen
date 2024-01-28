@@ -2,6 +2,7 @@ const
   { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'), // Importing necessary classes from discord.js
   { readdir } = require('fs/promises'), // Importing readdir function from fs/promises to read directories
   http = require('http'), // Importing http module to create a server
+  { DB } = require('@mephisto5558/mongoose-db'), // Importing mongoose-db module to communicate with MongoDB
   env = require('./env.json'), // Importing environment variables from env.json
   gitpull = require('./Utils/gitpull'); // Importing gitpull function from Utils/gitpull
 
@@ -30,6 +31,7 @@ const
     ]
   });
 
+  client.db = await new DB().init(env.keys.connectionstring, 'db-collections');
   client.keys = env.keys; // Assigning keys from environment variables to client
   client.commands = new Collection(); // Creating a new collection for client commands
 
