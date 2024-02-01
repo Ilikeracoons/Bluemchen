@@ -6,6 +6,7 @@ const gifs = [
 
 /**@type {command}*/
 module.exports = {
+  description: 'Bully someone!!',
   color: Colors.DarkGreen,
 
   run: async function run(message) {
