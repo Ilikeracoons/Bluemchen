@@ -2,7 +2,7 @@ const { EmbedBuilder, Colors } = require('discord.js');
 
 /**@type {command}*/
 module.exports = {
-  description: '',
+  description: 'shows you my most used commands :D',
 
   run: function run(message, args) {
     const
