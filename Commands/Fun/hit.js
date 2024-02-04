@@ -12,13 +12,13 @@ module.exports = {
   description: 'hit someone if they annoy you',
   color: Colors.DarkGreen,
   run: async function run(message) {
-    const randomIndex = Math.floor(Math.random() * gifs.length);
     const firstUserMentioned = message.mentions.users.first();
     let userMentioned = 'nobody';
     if (firstUserMentioned) {
       userMentioned = firstUserMentioned.username;
     }
-    const embed = new EmbedBuilder().setDescription(`Stop now ${userMentioned}!`).setImage(gifs[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * gifs.length);
+    const embed = new EmbedBuilder().setDescription(`Stop now, ${userMentioned}!`).setImage(gifs[randomIndex]);
     return message.reply({ embeds: [embed] });
   }
 };

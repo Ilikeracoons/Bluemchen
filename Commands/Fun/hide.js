@@ -8,10 +8,9 @@ const gifs = ['https://c.tenor.com/v1HWDFBQ6IAAAAAd/tenor.gif', 'https://c.tenor
 /**@type {command}*/
 module.exports = {
   description: 'Hide from someone or something!',
-  color: Colors.DarkGreen,
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setDescription(`Ooh ${message.author} is hiding!`).setImage(gifs[randomIndex]);
+    const embed = new EmbedBuilder().setDescription(`Ooh ${message.author} is hiding!`).setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
     return message.reply({ embeds: [embed] });
   }
 };
