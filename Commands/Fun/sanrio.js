@@ -10,10 +10,9 @@ const gifs = [
 /**@type {command}*/
 module.exports = {
   description: 'sends an Sanrio GIF',
-  color: Colors.Pink,
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setImage(gifs[randomIndex]);
+    const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.Pink);
     return message.reply({ embeds: [embed] });
   }
 };

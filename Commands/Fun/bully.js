@@ -8,7 +8,6 @@ const gifs = [
 /**@type {command}*/
 module.exports = {
   description: 'Bully someone!!',
-  color: Colors.DarkGreen,
 
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
@@ -17,7 +16,7 @@ module.exports = {
     if (firstUserMentioned) {
       userMentioned = firstUserMentioned.username;
     }
-    const embed = new EmbedBuilder().setDescription(`HAHA get bullied ${userMentioned}!`).setImage(gifs[randomIndex]);
+    const embed = new EmbedBuilder().setDescription(`HAHA get bullied ${userMentioned}!`).setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
     return message.reply({ embeds: [embed] });
   }
 };

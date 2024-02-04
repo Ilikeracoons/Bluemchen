@@ -15,7 +15,7 @@ module.exports = {
 
   run: async function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setDescription(`awww ${message.author} is bushing!`).setImage(gifs[randomIndex]);
+    const embed = new EmbedBuilder().setDescription(`awww ${message.author} is bushing!`).setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
     return message.reply({ embeds: [embed] });
   }
 };
