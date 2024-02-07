@@ -1,3 +1,6 @@
+console.time('Initializing time');
+console.info('Starting...');
+
 const
   { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'), // Importing necessary classes from discord.js
   { readdir } = require('fs/promises'), // Importing readdir function from fs/promises to read directories
@@ -5,6 +8,9 @@ const
   { DB } = require('@mephisto5558/mongoose-db'), // Importing mongoose-db module to communicate with MongoDB
   env = require('./env.json'), // Importing environment variables from env.json
   gitpull = require('./Utils/gitpull'); // Importing gitpull function from Utils/gitpull
+
+console.timeEnd('Initializing time');
+console.time('Starting time');
 
 // Main function
 (async function main() {
@@ -59,3 +65,5 @@ process
   .on('unhandledRejection', err => console.error(' [Error Handling] :: Unhandled Rejection', err.stack)) // Log unhandled promise rejections
   .on('uncaughtExceptionMonitor', err => console.error(' [Error Handling] :: Unhandled Exception', err.stack)) // Log uncaught exceptions
   .on('uncaughtException', err => console.error(' [Error Handling] :: Unhandled Exception', err.stack)); // Log uncaught exceptions
+
+console.timeEnd('Starting time');
