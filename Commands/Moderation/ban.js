@@ -34,12 +34,17 @@ async function ban(message, target, reason) {
 /**@type {command}*/
 module.exports = {
   description: 'Ban an annoying user',
-  
+
   run: async function run(message, args) {
-    const target = await message.guild.members.fetch(args[0]);
-    const reason = args.slice(1).join(' ');
     const commandUsage = 'Command usage: ban [userId] [reason]';
 
+    if (!args[0] || isNaN(args[0])) return message.reply(`invalid user id\n${commandUsage}`);
+
+    let target;
+    try { target = await message.guild.members.fetch(args[0]); }
+    catch (err) { return message.reply('hmmm couldn`t find the user ID'); }
+
+    const reason = args.slice(1).join(' ');
     if (!target) return message.reply(`Uhm? And who should I ban?\n${commandUsage}`);
     if (!reason) return message.reply(`Give me a reason dumby!\n${commandUsage}`);
 
