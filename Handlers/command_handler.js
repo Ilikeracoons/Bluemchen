@@ -11,7 +11,7 @@ async function getDirectories(path) {
 
 let commandCount = 0;
 
-/**@param {import('discord.js').Client}client*/
+/** @param {import('discord.js').Client}client*/
 module.exports = async function commandHandler(client) {
   // Loop through all the files in the Commands directory
   for (const subFolder of await getDirectories('./Commands')) {

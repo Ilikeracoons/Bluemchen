@@ -3,14 +3,14 @@
 // Import the exec function from child_process module and promisify it
 const exec = require('util').promisify(require('child_process').exec);
 
-/**@returns {Promise<Error|'OK'>}*/
+/** @returns {Promise<Error|'OK'>}*/
 // Export an asynchronous function
 module.exports = async () => {
   let data; // Declare a variable to store the result of the git pull command
 
   try {
-    // Try to execute the git pull command
-    // maxBuffer option is set to 614400 bytes, which is ~600KB
+    /* Try to execute the git pull command
+       maxBuffer option is set to 614400 bytes, which is ~600KB */
     data = await exec('git pull', { maxBuffer: 614400 });
   }
   catch (err) {
@@ -21,11 +21,11 @@ module.exports = async () => {
 
   // Log the result of the git pull command
   console.log(
-    'GIT PULL\n' +
+    'GIT PULL\n'
     // If there is any standard output, log it
-    (data.stdout ? `out: ${data.stdout.trim()}\n` : '') +
+    + (data.stdout ? `out: ${data.stdout.trim()}\n` : '')
     // If there is any standard error, log it
-    (data.stderr ? `err: ${data.stderr.trim()}\n` : '')
+    + (data.stderr ? `err: ${data.stderr.trim()}\n` : '')
   );
 
   // If everything goes well, return 'OK'

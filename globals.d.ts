@@ -6,7 +6,7 @@ declare global {
     name: string;
     description?: string;
     category: string;
-    run(message: Discord.Message, args: string[]): any;
+    run(message: Discord.Message, args: string[]): Promise<never>;
   };
 }
 
@@ -14,6 +14,6 @@ declare module 'discord.js' {
   interface BaseClient {
     db: DB;
     keys: object;
-    commands: Discord.Collection<string, command>
+    commands: Discord.Collection<string, command>;
   }
 }
