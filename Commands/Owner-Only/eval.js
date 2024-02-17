@@ -3,10 +3,12 @@
 const
   { codeBlock } = require('discord.js'),
   vars = ['message', '__dirname', '__filename', 'exports', 'module', 'require'],
-  BoundAsyncFunction = (async function () { }).constructor.bind(null, ...vars),
+  /* eslint-disable-next-line func-names, no-empty-function */
+  BoundAsyncFunction = async function () { }.constructor.bind(null, ...vars),
+  /* eslint-disable-next-line no-new-func */
   BoundFunction = Function.bind(null, ...vars);
 
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
   description: 'eval code with me',
 

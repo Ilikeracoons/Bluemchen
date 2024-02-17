@@ -1,4 +1,6 @@
-/**@param {import('discord.js).GuildMember}member @param {import('discord.js).GuildMember}target*/
+/**
+ * @param {import('discord.js').GuildMember}member
+ * @param {import('discord.js').GuildMember}target*/
 function checkTargetManageable(member, target) {
   if (member.id == target.id) return "You can't ban yourself silly!";
   if (!target.manageable) return "Well~ I don't have the permission to do that!";
@@ -6,7 +8,10 @@ function checkTargetManageable(member, target) {
     return "Silly you, you don't have the permission to do that!";
 }
 
-/**@param {import('discord.js').Message}message @param {import('discord.js).GuildMember}target*/
+/**
+ * @param {import('discord.js').Message}message
+ * @param {import('discord.js').GuildMember}target
+ * @param {string} reason*/
 async function ban(message, target, reason) {
   const err = checkTargetManageable(message.member, target);
   if (err) return message.reply(`Oh nou, **${target.user.tag}** couldn't be banned.\n${err}\n`);
@@ -31,7 +36,7 @@ async function ban(message, target, reason) {
   return message.reply(msg);
 }
 
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
   description: 'Ban an annoying user',
 

@@ -1,4 +1,4 @@
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
   description: 'restart mee ^^',
 
