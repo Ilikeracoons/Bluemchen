@@ -5,18 +5,19 @@ const gifs = [
   'https://media1.tenor.com/m/PBdwTKAond0AAAAC/pokemon-will.gif'
 ];
 
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
   description: 'Bully someone!!',
 
-  run: async function run(message) {
+  run: function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
     const firstUserMentioned = message.mentions.users.first();
     let userMentioned = 'nobody';
-    if (firstUserMentioned) {
+    if (firstUserMentioned)
       userMentioned = firstUserMentioned.username;
-    }
-    const embed = new EmbedBuilder().setDescription(`HAHA get bullied ${userMentioned}!`).setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
+
+    const embed = new EmbedBuilder().setDescription(`HAHA get bullied ${userMentioned}!`).setImage(gifs[randomIndex])
+      .setColor(Colors.DarkGreen);
     return message.reply({ embeds: [embed] });
   }
 };
