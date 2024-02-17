@@ -2,7 +2,7 @@ const
   { EmbedBuilder, Colors } = require('discord.js'),
   config = require('../../config.json');
 
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
   description: 'Get some help',
 

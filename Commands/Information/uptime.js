@@ -1,9 +1,9 @@
-/**@type {command}*/
+/** @type {command}*/
 module.exports = {
-  description:'tells you my uptime',
-  
+  description: 'tells you my uptime',
+
   run: function run(message) {
-    let totalSeconds = (message.client.uptime / 1000);
+    let totalSeconds = message.client.uptime / 1000;
     const days = Math.floor(totalSeconds / 86400);
     totalSeconds %= 86400;
     const hours = Math.floor(totalSeconds / 3600);
