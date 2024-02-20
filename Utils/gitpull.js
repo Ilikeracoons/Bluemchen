@@ -1,7 +1,7 @@
 // Credits: https://github.com/Mephisto5558/Teufelsbot/blob/main/Utils/gitpull.js
 
 // Import the exec function from child_process module and promisify it
-const exec = require('util').promisify(require('child_process').exec);
+const exec = require('node:util').promisify(require('node:child_process').exec);
 
 /** @returns {Promise<Error|'OK'>}*/
 // Export an asynchronous function
@@ -11,7 +11,7 @@ module.exports = async () => {
   try {
     /* Try to execute the git pull command
        maxBuffer option is set to 614400 bytes, which is ~600KB */
-    data = await exec('git pull', { maxBuffer: 614400 });
+    data = await exec('git pull', { maxBuffer: 614_400 });
   }
   catch (err) {
     // If an error occurs, log the error and return it

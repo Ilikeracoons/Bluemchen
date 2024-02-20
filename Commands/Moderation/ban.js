@@ -25,7 +25,7 @@ async function ban(message, target, reason) {
     );
   }
   catch {
-    if (err.code != 50007) throw err; // "Cannot send messages to this user"
+    if (err.code != 50_007) throw err; // "Cannot send messages to this user"
     noMsg = true;
   }
 
@@ -43,11 +43,11 @@ module.exports = {
   run: async function run(message, args) {
     const commandUsage = 'Command usage: ban [userId] [reason]';
 
-    if (!args[0] || isNaN(args[0])) return message.reply(`invalid user id\n${commandUsage}`);
+    if (!Number.parseInt(args[0])) return message.reply(`invalid user id\n${commandUsage}`);
 
     let target;
     try { target = await message.guild.members.fetch(args[0]); }
-    catch (err) { return message.reply('hmmm couldn`t find the user ID'); }
+    catch { return message.reply('hmmm couldn`t find the user ID'); }
 
     const reason = args.slice(1).join(' ');
     if (!target) return message.reply(`Uhm? And who should I ban?\n${commandUsage}`);

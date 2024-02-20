@@ -1,5 +1,5 @@
 // Import the readdir function from fs/promises module to read directories
-const { readdir } = require('fs/promises');
+const { readdir } = require('node:fs/promises');
 
 /** @param {import('discord.js').Client<false>}client*/
 // Export an asynchronous function that handles events
