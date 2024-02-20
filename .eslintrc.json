@@ -1,3 +1,6 @@
 {
-  "extends": "@mephisto5558/eslint-config"
+  "extends": "@mephisto5558/eslint-config",
+  "ignorePatterns": [
+    "Templates/*"
+  ]
 }
