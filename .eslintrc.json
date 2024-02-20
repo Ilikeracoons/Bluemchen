@@ -2,5 +2,8 @@
   "extends": "@mephisto5558/eslint-config",
   "ignorePatterns": [
     "Templates/*"
-  ]
+  ],
+  "globals": {
+    "command": "writable"
+  }
 }

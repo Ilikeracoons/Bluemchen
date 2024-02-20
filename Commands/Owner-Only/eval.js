@@ -4,9 +4,9 @@ const
   { codeBlock } = require('discord.js'),
   vars = ['message', '__dirname', '__filename', 'exports', 'module', 'require'],
   /* eslint-disable-next-line func-names, no-empty-function */
-  BoundAsyncFunction = async function () { }.constructor.bind(null, ...vars),
+  BoundAsyncFunction = async function () { }.constructor.bind(undefined, ...vars),
   /* eslint-disable-next-line no-new-func */
-  BoundFunction = Function.bind(null, ...vars);
+  BoundFunction = Function.bind(undefined, ...vars);
 
 /** @type {command}*/
 module.exports = {

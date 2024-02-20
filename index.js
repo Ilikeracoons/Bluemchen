@@ -3,8 +3,8 @@ console.info('Starting...');
 
 const
   { Client, AllowedMentionsTypes, GatewayIntentBits, Partials, Collection } = require('discord.js'), // Importing necessary classes from discord.js
-  { readdir } = require('fs/promises'), // Importing readdir function from fs/promises to read directories
-  http = require('http'), // Importing http module to create a server
+  { readdir } = require('node:fs/promises'), // Importing readdir function from fs/promises to read directories
+  http = require('node:http'), // Importing http module to create a server
   { DB } = require('@mephisto5558/mongoose-db'), // Importing mongoose-db module to communicate with MongoDB
   env = require('./env.json'), // Importing environment variables from env.json
   gitpull = require('./Utils/gitpull'); // Importing gitpull function from Utils/gitpull

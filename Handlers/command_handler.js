@@ -1,12 +1,11 @@
-const { readdir } = require('fs/promises');
+const { readdir } = require('node:fs/promises');
 
 async function getDirectories(path) {
   // Get all files and dirs in a path
   const dirsAndFiles = await readdir(path, { withFileTypes: true });
-  // Use the reduce method to only get the directory names
-  const dirs = dirsAndFiles.reduce((acc, e) => e.isDirectory() ? [...acc, e.name] : acc, []);
-  // Return the directory names (Array)
-  return dirs;
+
+  /* Use the reduce method to only return the directory names*/
+  return dirsAndFiles.reduce((acc, e) => e.isDirectory() ? [...acc, e.name] : acc, []);
 }
 
 let commandCount = 0;
