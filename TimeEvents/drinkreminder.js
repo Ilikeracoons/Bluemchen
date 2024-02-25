@@ -1,6 +1,6 @@
 const { Colors, EmbedBuilder } = require('discord.js');
 module.exports = {
-  time: '0 0 * * * *',
+  time: '0 0 8-20 * * * ',
   startNow: false,
 
 
