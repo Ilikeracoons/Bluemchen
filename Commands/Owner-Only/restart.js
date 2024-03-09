@@ -4,9 +4,11 @@ const { Colors, EmbedBuilder } = require('discord.js');
 module.exports = {
   description: 'restart mee ^^',
 
-  run: function run(message) {
+  run: async function run(message) {
     const embed = new EmbedBuilder().setDescription('Gonna restart now wait a min :t_rex:')
       .setColor(Colors.DarkGreen);
-    return message.reply({ embeds: [embed] });
+    await message.reply({ embeds: [embed] });
+
+    process.exit();
   }
 };
