@@ -12,7 +12,7 @@ module.exports = {
   description: 'sends an Sanrio GIF',
   run: function run(message) {
     const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.Pink);
+    const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.DarkVividPink);
     return message.reply({ embeds: [embed] });
   }
 };
