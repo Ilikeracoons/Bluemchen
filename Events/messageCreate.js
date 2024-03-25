@@ -5,7 +5,7 @@ const
 /** @param {import('discord.js').Message}message*/
 module.exports = async function messageCreate(message) {
   // If the message author is a bot or the message doesn't start with the prefix, return.
-  if (message.author.bot || !message.content.toLowerCase().startsWith(prefix + ' ')) return;
+  if (message.author.bot || !message.content.toLowerCase().startsWith(prefix)) return;
   const
     // remove the prefix from the string and then split the string on whitespaces.
     args = message.content?.slice(prefix.length).trim().split(' '),
