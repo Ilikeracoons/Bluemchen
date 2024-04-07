@@ -5,7 +5,7 @@ const exec = require('node:util').promisify(require('node:child_process').exec);
 
 /** @returns {Promise<Error|'OK'>}*/
 // Export an asynchronous function
-module.exports = async () => {
+module.exports = async function gitpull() {
   let data; // Declare a variable to store the result of the git pull command
 
   try {
