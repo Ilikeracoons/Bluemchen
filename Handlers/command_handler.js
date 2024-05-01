@@ -21,6 +21,7 @@ module.exports = async function commandHandler(client) {
 
       // Import the event
       const command = require(`../Commands/${subFolder}/${file}`);
+
       // Skip the file if it doesn't have a run property
       if (!command?.run) continue;
 
@@ -36,8 +37,7 @@ module.exports = async function commandHandler(client) {
 
       // Log that the event has been loaded
       console.log(`Loaded Prefix Command ${commandName}`);
-      // Increment the command counter
-      commandCount++;
+      commandCount++; // Increment the command counter
     }
   }
 

@@ -22,10 +22,8 @@ module.exports = async function gitpull() {
   // Log the result of the git pull command
   console.log(
     'GIT PULL\n'
-    // If there is any standard output, log it
-    + (data.stdout ? `out: ${data.stdout.trim()}\n` : '')
-    // If there is any standard error, log it
-    + (data.stderr ? `err: ${data.stderr.trim()}\n` : '')
+    + (data.stdout ? `out: ${data.stdout.trim()}\n` : '') // If there is any standard output, log it
+    + (data.stderr ? `err: ${data.stderr.trim()}\n` : '') // If there is any standard error, log it
   );
 
   // If everything goes well, return 'OK'
