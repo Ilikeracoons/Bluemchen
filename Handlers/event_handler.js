@@ -13,6 +13,7 @@ module.exports = async function eventHandler(client) {
 
     // Get the event name by removing the file extension
     const eventName = file.split('.')[0];
+
     // Import the event
     const event = require(`../Events/${file}`);
 
@@ -20,14 +21,14 @@ module.exports = async function eventHandler(client) {
     client.on(eventName, (...args) => { // same as client.addListener
       // If the event has one argument and it's an instance of the Client class, call the event with only the client as the argument
       if (args.length == 1 && args[0] instanceof client.constructor) event(client);
+
       // Otherwise, call the event with the original arguments and the client as the last argument
       else event(...args, client);
     });
 
     // Log that the event has been loaded
     console.log(`Loaded Event ${eventName}`);
-    // Increment the event counter
-    eventCount++;
+    eventCount++; // Increment the event counter
   }
 
   // Log the total number of loaded events
