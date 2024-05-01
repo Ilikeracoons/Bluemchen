@@ -1,4 +1,6 @@
-const { readdir } = require('node:fs/promises');
+const
+  { readdir } = require('node:fs/promises'),
+  { resolve } = require('node:path');
 
 async function getDirectories(path) {
   // Get all files and dirs in a path
@@ -31,6 +33,7 @@ module.exports = async function commandHandler(client) {
       // add some useful properties, useful for eg. help command
       command.name = commandName;
       command.category = subFolder;
+      command.filePath = resolve(`Commands/${subFolder}/${file}`);
 
       // add the command to the collection with its name as key
       client.commands.set(commandName, command);
