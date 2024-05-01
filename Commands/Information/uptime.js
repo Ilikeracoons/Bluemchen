@@ -1,3 +1,5 @@
+const { Colors, EmbedBuilder } = require('discord.js');
+
 /** @type {command}*/
 module.exports = {
   description: 'tells you my uptime',
@@ -17,7 +19,7 @@ module.exports = {
     else if (hours) msg += `${hours} hours, ${minutes} minutes and ${seconds} seconds!`;
     else if (minutes) msg += `${minutes} minutes and ${seconds} seconds!`;
     else msg += `${seconds} seconds!`;
-
-    return message.reply(msg);
+    const embed = new EmbedBuilder().setDescription(msg).setColor(Colors.DarkGreen);
+    return message.reply({ embeds: [embed] });
   }
 };
