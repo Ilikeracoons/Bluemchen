@@ -37,7 +37,7 @@ module.exports = {
         }
       }
 
-      embed.setDescription(activityString);
+      if (activityString) embed.setDescription(activityString);
     }
 
     await message.reply({ embeds: [embed] });
