@@ -11,11 +11,11 @@ module.exports = {
     // Searching the list of valid activities
     type = type ? ActivityType[Object.keys(ActivityType).find(e => e.toLowerCase() == type.toLowerCase())] : ActivityType.Playing;
 
-    if (!Number.parseInt(type)) type = ActivityType[type];
+    if (Number.isNaN(Number.parseInt(type))) type = ActivityType[type];
 
     if (!type && type != 0) return message.reply(`Invalid activity type, valid types: ${Object.keys(ActivityType).filter(e => !Number.parseInt(e)).join('`, `')}`);
 
-    message.client.user.setActivity(activity, { type });
+    message.client.user.setActivity({ name: activity, type });
 
     if (activity) return message.reply(`Set activity to ${activity} of type ${ActivityType[type]}`);
     return message.reply('Reset activity');

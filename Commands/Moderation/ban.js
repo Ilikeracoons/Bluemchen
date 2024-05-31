@@ -24,7 +24,7 @@ async function ban(message, target, reason) {
       + `Reason: ${reason}`
     );
   }
-  catch {
+  catch (err) {
     if (err.code != 50_007) throw err; // "Cannot send messages to this user"
     noMsg = true;
   }

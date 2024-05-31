@@ -6,6 +6,7 @@ declare global {
     name: string;
     description?: string;
     category: string;
+    filePath: string;
     run(message: Discord.Message, args: string[]): Promise<never>;
   };
 }
