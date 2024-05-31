@@ -31,7 +31,8 @@ console.time('Starting time');
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMembers,
       GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.MessageContent
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildPresences
     ],
     partials: [
       Partials.Channel,
