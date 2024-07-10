@@ -30,7 +30,7 @@ module.exports = {
             activityString += `Is listening to **${activity.name}**`;
             break;
           case ActivityType.Watching:
-            activityString += `Is watching**${activity.name}**(porn)`;
+            activityString += `Is watching**${activity.name}**`;
             break;
           case ActivityType.Streaming:
             activityString += `is streaming **${activity.name}**`;
