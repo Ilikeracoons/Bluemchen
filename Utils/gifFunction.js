@@ -9,7 +9,7 @@ const
  * @param {string?}descriptionGeneral*/
 module.exports = function gifFunction(message, gifs, descriptionMentioned, descriptionGeneral = descriptionMentioned) {
   // Gets the user who (or who's name) was mentioned
-  const user = getTargetMember(message);
+  const member = getTargetMember(message);
 
   // Get a random number
   const randomIndex = Math.floor(Math.random() * gifs.length);
@@ -17,7 +17,7 @@ module.exports = function gifFunction(message, gifs, descriptionMentioned, descr
   const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
 
   // If a user was mentioned, set the description to `descriptionMentioned` and replace all `<user>` with the user's name.
-  if (user) embed.setDescription(descriptionMentioned.replaceAll('<user>', user.username));
+  if (member) embed.setDescription(descriptionMentioned.replaceAll('<user>', member.displayName));
   else embed.setDescription(descriptionGeneral);
 
   // Send the reply.
