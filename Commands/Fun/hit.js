@@ -1,4 +1,4 @@
-const { Colors, EmbedBuilder } = require('discord.js');
+const gifFunction = require('../../Utils/gifFunction.js');
 const gifs = [
   'https://media1.tenor.com/m/E4Px9kJOQ5wAAAAC/anime-kid.gif', 'https://media1.tenor.com/m/CawKRw6kPtoAAAAd/tokyo-revengers-anime.gif',
   'https://media1.tenor.com/m/CUy1MDU94xgAAAAC/froakie-hit.gif', 'https://media1.tenor.com/m/qfq-agI9GNkAAAAC/smack.gif',
@@ -10,14 +10,8 @@ const gifs = [
 /** @type {command}*/
 module.exports = {
   description: 'hit someone if they annoy you',
-  color: Colors.DarkGreen,
-  run: function run(message) {
-    const firstUserMentioned = message.mentions.users.first();
-    let userMentioned = 'nobody';
-    if (firstUserMentioned) userMentioned = firstUserMentioned.username;
 
-    const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setDescription(`Stop now, ${userMentioned}!`).setImage(gifs[randomIndex]);
-    return message.reply({ embeds: [embed] });
+  run: function run(message) {
+    return gifFunction(message, gifs, 'Stop now, <user>!', 'Stop now!');
   }
 };

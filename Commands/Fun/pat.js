@@ -1,4 +1,4 @@
-const { Colors, EmbedBuilder } = require('discord.js');
+const gifFunction = require('../../Utils/gifFunction.js');
 const gifs = [
   'https://media1.tenor.com/m/2vFAxyl6cI8AAAAd/mai-headpats.gif', 'https://media1.tenor.com/m/7s9GHzaidu0AAAAC/cat-patting.gif',
   'https://media1.tenor.com/m/ngpifLa9ieQAAAAC/pat-patting.gif', 'https://media1.tenor.com/m/Wrr4rxTqrrkAAAAC/futeki-fearless.gif',
@@ -15,14 +15,6 @@ const gifs = [
 module.exports = {
   description: 'pat someone!!',
   run: function run(message) {
-    const firstUserMentioned = message.mentions.users.first();
-
-    const randomIndex = Math.floor(Math.random() * gifs.length);
-    const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);
-
-    if (firstUserMentioned) embed.setDescription(`pat pat ${firstUserMentioned.username}`);
-    else embed.setDescription(`${message.member.displayName} is patting somebody! (uuii)`);
-
-    return message.reply({ embeds: [embed] });
+    return gifFunction(message, gifs, 'pat pat <user>', `${message.member.displayName} is patting somebody! (uuii)`);
   }
 };
