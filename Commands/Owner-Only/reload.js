@@ -81,6 +81,6 @@ module.exports = {
     if (commands.length >= 800) commands = commands.slice(0, Math.max(0, commands.slice(0, 800).lastIndexOf('`,') + 1)) + '...';
 
     if (reloadedArray.length) return msg.edit(`The following \`${reloadedArray.length}\` commands have been reloaded:\n` + commands);
-    return msg.edit('Es wurden keine Commands neu geladen.');
+    return msg.edit('No commands were reloaded :<');
   }
 };
