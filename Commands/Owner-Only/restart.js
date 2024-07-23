@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-process-exit -- restarting the bot requires process.exit() */
 const { Colors, EmbedBuilder } = require('discord.js');
 
 /** @type {command}*/
