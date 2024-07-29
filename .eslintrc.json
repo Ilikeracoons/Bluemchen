@@ -1,6 +1,125 @@
 {
   "root": true,
-  "extends": "@mephisto5558/eslint-config",
+  "env": {
+    "node": true,
+    "es2024": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "commonjs"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jsdoc",
+    "sonarjs",
+    "unicorn"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "reportUnusedDisableDirectives": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsdoc/recommended",
+    "plugin:sonarjs/recommended-legacy",
+    "plugin:unicorn/recommended"
+  ],
+  "rules": {
+    "jsdoc/require-returns": "off",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/no-multi-asterisks": [
+      "warn",
+      {
+        "preventAtEnd": false
+      }
+    ],
+    "jsdoc/multiline-blocks": [
+      "error",
+      {
+        "noFinalLineText": false
+      }
+    ],
+    "jsdoc/require-jsdoc": "off",
+    "unicorn/catch-error-name": [
+      "warn",
+      {
+        "ignore": [
+          "^err(or)?\\d*$"
+        ]
+      }
+    ],
+    "unicorn/explicit-length-check": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "camelCase"
+      }
+    ],
+    "unicorn/import-style": "off",
+    "unicorn/no-array-reduce": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prefer-top-level-await": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/switch-case-braces": [
+      "error",
+      "avoid"
+    ],
+    "unicorn/empty-brace-spaces": "off" // Handled by `no-empty`"
+  },
+  "overrides": [
+    {
+      "files": "*.ts",
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jsdoc/recommended",
+        "plugin:sonarjs/recommended-legacy",
+        "plugin:unicorn/recommended"
+      ],
+      "rules": {
+        "jsdoc/require-returns": "off",
+        "jsdoc/require-returns-description": "off",
+        "jsdoc/require-param-description": "off",
+        "jsdoc/no-multi-asterisks": [
+          "warn",
+          {
+            "preventAtEnd": false
+          }
+        ],
+        "jsdoc/multiline-blocks": [
+          "error",
+          {
+            "noFinalLineText": false
+          }
+        ],
+        "jsdoc/require-jsdoc": "off",
+        "unicorn/catch-error-name": [
+          "warn",
+          {
+            "ignore": [
+              "^err(or)?\\d*$"
+            ]
+          }
+        ],
+        "unicorn/explicit-length-check": "off",
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "camelCase"
+          }
+        ],
+        "unicorn/import-style": "off",
+        "unicorn/no-array-reduce": "off",
+        "unicorn/prefer-module": "off",
+        "unicorn/prefer-top-level-await": "off",
+        "unicorn/prevent-abbreviations": "off",
+        "unicorn/switch-case-braces": [
+          "error",
+          "avoid"
+        ],
+        "unicorn/empty-brace-spaces": "off" // Handled by `no-empty`"
+      }
+    }
+  ],
   "ignorePatterns": [
     "Templates/*"
   ],
