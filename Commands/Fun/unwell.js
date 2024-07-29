@@ -1,7 +1,7 @@
 const gifFunction = require('../../Utils/gifFunction.js');
 const gifs = [
-  'https://media.giphy.com/media/l3V0Akmv7LTfIHK6c/giphy.gif', 'https://media.giphy.com/media/52dOyY6pGuv1S/giphy.gif', 'https://media.giphy.com/media/NNeyoSjPTDfhe/giphy.gif',
-  'https://media.giphy.com/media/SHyuhBtRr8Zeo/giphy.gif', 'https://media.giphy.com/media/l0HU380owIjSg4ks8/giphy.gif', 'https://media.giphy.com/media/RdriIl7F0CBQyctX1V/giphy.gif'
+  'https://i.giphy.com/l3V0Akmv7LTfIHK6c.gif', 'https://i.giphy.com/52dOyY6pGuv1S.gif', 'https://i.giphy.com/NNeyoSjPTDfhe.gif',
+  'https://i.giphy.com/SHyuhBtRr8Zeo.gif', 'https://i.giphy.com/l0HU380owIjSg4ks8.gif', 'https://i.giphy.com/RdriIl7F0CBQyctX1V.gif'
 ];
 
 /** @type {command}*/

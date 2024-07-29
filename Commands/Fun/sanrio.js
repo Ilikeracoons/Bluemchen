@@ -1,10 +1,10 @@
 const { Colors, EmbedBuilder } = require('discord.js');
 const gifs = [
-  'https://media1.tenor.com/m/OOec313ZvlwAAAAC/my-melody-hello-kitty.gif', 'https://media1.tenor.com/m/Fg2sywkrfw8AAAAC/cinnamoroll-cinnamon-roll.gif',
-  'https://media1.tenor.com/m/xpXBNg4bnacAAAAC/sanrio-hello-kitty.gif', 'https://media1.tenor.com/m/VXKFzyXFJRcAAAAC/sanrio-my.gif',
-  'https://media1.tenor.com/m/1fyNuX1I4ewAAAAC/my-sweet-piano-sanrio.gif', 'https://media1.tenor.com/m/Vozidckt_q8AAAAC/smooches-hearts.gif',
-  'https://media1.tenor.com/m/d-S-rF6ZB_oAAAAd/pompompurin-sanrio.gif', 'https://media1.tenor.com/m/AMm9lIfrxTAAAAAC/sanrio-my-melody.gif',
-  'https://media1.tenor.com/m/4PHGkHBiMfYAAAAC/kuromi-sanrio.gif', 'https://media1.tenor.com/m/YmQnzITYoTkAAAAC/kuromi-sanrio.gif'
+  'https://c.tenor.com/OOec313ZvlwAAAAC/.gif',
+  'https://c.tenor.com/xpXBNg4bnacAAAAC/.gif',
+  'https://c.tenor.com/1fyNuX1I4ewAAAAC/.gif',
+  'https://c.tenor.com/d-S-rF6ZB_oAAAAd/.gif',
+  'https://c.tenor.com/4PHGkHBiMfYAAAAC/.gif'
 ];
 
 /** @type {command}*/
