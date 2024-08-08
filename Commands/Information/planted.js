@@ -14,7 +14,7 @@ module.exports = {
       + `I have a multitude of ${message.client.commands.size} commands!\n`
       + 'My favorite food is Soup and I love the game Cult of the Lamb'
 
-    ).setImage('https://media1.tenor.com/m/termX5OvksIAAAAC/flowers.gif')
+    ).setImage('https://c.tenor.com/termX5OvksIAAAAC/.gif')
       .setColor(Colors.Fuchsia);
 
     message.reply({ embeds: [embed] });
