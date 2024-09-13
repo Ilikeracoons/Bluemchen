@@ -14,7 +14,7 @@
   "dependencies": {
     "@mephisto5558/mongoose-db": "^3.1.3",
     "cron": "^3.1.7",
-    "discord.js": "^14.15.3"
+    "discord.js": "^14.16.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
