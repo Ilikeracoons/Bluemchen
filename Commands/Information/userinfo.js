@@ -31,7 +31,7 @@ module.exports = {
       .setThumbnail(member.user.avatarURL())
       .addFields({ name: 'Username', value: `<@${member.id}>`, inline: true },
 
-        { name: 'Status', value: member.presence?.status || 'Offline', inline: true },
+        { name: 'Status', value: member.presence?.status ?? 'Offline', inline: true },
 
         { name: 'Joined Discord on', value: `<t:${Math.round(member.user.createdTimestamp / 1000)}>`, inline: true },
 

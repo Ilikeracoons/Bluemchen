@@ -10,7 +10,7 @@ module.exports = {
       embed = new EmbedBuilder({ title: 'My most used Commands!', color: Colors.DarkGreen });
 
     if (command)
-      embed.data.description = `This is my most used command:\nName: \`${command}\`, Uses: ${message.client.db.get('botSettings', 'cmdstats.' + command) ?? 0}`;
+      embed.data.description = `This is my most used command:\nName: \`${command}\`, Uses: ${message.client.db.get('botSettings', 'cmdstats.' + command)?.toString() ?? 0}`;
 
     else {
       embed.data.fields = Object.entries(message.client.db.get('botSettings', 'cmdstats') ?? {})
