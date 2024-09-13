@@ -11,6 +11,7 @@ const gifs = [
 module.exports = {
   description: 'sends an Sanrio GIF',
   run: function run(message) {
+    /* eslint-disable-next-line sonarjs/pseudo-random -- safe here */
     const randomIndex = Math.floor(Math.random() * gifs.length);
     const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.DarkVividPink);
     return message.reply({ embeds: [embed] });
