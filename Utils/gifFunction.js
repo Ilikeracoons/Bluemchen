@@ -12,6 +12,7 @@ module.exports = function gifFunction(message, gifs, descriptionMentioned, descr
   const member = getTargetMember(message);
 
   // Get a random number
+  /* eslint-disable-next-line sonarjs/pseudo-random -- safe here */
   const randomIndex = Math.floor(Math.random() * gifs.length);
   // Create the embed
   const embed = new EmbedBuilder().setImage(gifs[randomIndex]).setColor(Colors.DarkGreen);

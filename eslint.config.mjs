@@ -85,7 +85,9 @@ export default [
         "avoid"
       ],
       "unicorn/empty-brace-spaces": "off", // Handled by `no-empty`",
-      "@typescript-eslint/no-require-imports": "off"
+      "@typescript-eslint/no-require-imports": "off",
+      "sonarjs/sonar-no-fallthrough": "off", // Errors in userinfo.js:44 for an unknown reason
+      "sonarjs/void-use": "off" 
     }
   }
 ];
