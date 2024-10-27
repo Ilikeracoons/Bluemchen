@@ -3,6 +3,7 @@ import globals from 'globals';
 import eslint from '@eslint/js';
 import tslint from 'typescript-eslint';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
+import regexpPlugin from 'eslint-plugin-regexp';
 import sonarjsPlugin from 'eslint-plugin-sonarjs';
 import unicornPlugin from 'eslint-plugin-unicorn';
 
@@ -18,13 +19,14 @@ export default [
     name: 'eslint-config:config',
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: true,
         tsconfigRootDir: '.',
         warnOnUnsupportedTypeScriptVersion: true
       },
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
+        ...globals.builtin,
         ...globals.node,
         ...globals.es2024,
         NodeJS: 'readonly',
@@ -39,6 +41,7 @@ export default [
   ...tslint.configs.recommended,
   ...tsLintConfigRecommendedTypeChecked,
   jsdocPlugin.configs['flat/recommended'],
+  regexpPlugin.configs['flat/recommended'],
   sonarjsPlugin.configs.recommended,
   unicornPlugin.configs['flat/recommended'],
   {
